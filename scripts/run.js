@@ -6,7 +6,11 @@ const main = async () => {
     "https://i.imgur.com/u28ZlNe.jpeg", 
     "https://i.imgur.com/UGZlRRl.jpeg"],
     [250, 270, 410],                    // HP values
-    [63, 75, 99]                       // Attack damage values
+    [63, 75, 99],                       // Attack damage values
+    "Elon Musk", // Boss name
+    "https://i.imgur.com/AksR0tt.png", // Boss image
+    10000, // Boss hp
+    50 // Boss attack damage
   );
   await gameContract.deployed();
   console.log("Contract deployed to:", gameContract.address);

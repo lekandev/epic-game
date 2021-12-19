@@ -56,6 +56,17 @@ contract MyEpicGame is ERC721 {
   )
     ERC721("Heroes", "HERO")
   {
+    // Initialize the boss. Save it to our global "bigBoss" state variable.
+    bigBoss = BigBoss({
+      name: bossName,
+      imageURI: bossImageURI,
+      hp: bossHp,
+      maxHp: bossHp,
+      attackDamage: bossAttackDamage
+    });
+
+    console.log("Done initializing boss %s w/ HP %s, img %s", bigBoss.name, bigBoss.hp, bigBoss.imageURI);
+
     // Loop through all the characters, and save their values in our contract so
     // we can use them later when we mint our NFTs.
     for(uint i = 0; i < characterNames.length; i += 1) {
@@ -96,6 +107,16 @@ contract MyEpicGame is ERC721 {
       maxHp: defaultCharacters[_characterIndex].maxHp,
       attackDamage: defaultCharacters[_characterIndex].attackDamage
     });
+
+    struct BigBoss {
+      string name;
+      string imageURI;
+      uint hp;
+      uint maxHp;
+      uint attackDamage;
+    }
+
+    BigBoss public bigBoss;
 
     console.log("Minted NFT w/ tokenId %s and characterIndex %s", newItemId, _characterIndex);
     
