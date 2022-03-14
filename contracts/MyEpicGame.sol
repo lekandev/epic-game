@@ -39,16 +39,6 @@ contract MyEpicGame is ERC721 {
   // We create a mapping from the nft's tokenId => that NFTs attributes.
   mapping(uint256 => CharacterAttributes) public nftHolderAttributes;
 
-  struct BigBoss {
-    string name;
-    string imageURI;
-    uint hp;
-    uint maxHp;
-    uint attackDamage;
-  }
-
-    BigBoss public bigBoss;
-
   // A mapping from an address => the NFTs tokenId. Gives me an ez way
   // to store the owner of the NFT and reference it later.
   mapping(address => uint256) public nftHolders;
@@ -117,6 +107,16 @@ contract MyEpicGame is ERC721 {
       maxHp: defaultCharacters[_characterIndex].maxHp,
       attackDamage: defaultCharacters[_characterIndex].attackDamage
     });
+
+    struct BigBoss {
+      string name;
+      string imageURI;
+      uint hp;
+      uint maxHp;
+      uint attackDamage;
+    }
+
+    BigBoss public bigBoss;
 
     console.log("Minted NFT w/ tokenId %s and characterIndex %s", newItemId, _characterIndex);
     
